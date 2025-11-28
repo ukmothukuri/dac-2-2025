@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ecom APP</title>
+</head>
+<body>
+	<script>
+		function validateUserName(){
+			if(document.getElementById("username").value === ""){
+				alert("User Name cannot be empty");
+				return false;
+			}
+			return true;
+		}
+		
+		function validateUserEmail(){
+			if(document.getElementById("useremail").value === ""){
+				alert("User Email cannot be empty");
+				return false;
+			}
+			return true;	
+		}
+		
+		function validateUserMobile(){
+			if(document.getElementById("usermobile").value == ""){
+				alert("User Mobile cannot be empty");
+				return false;
+			}
+			else if(document.getElementById("usermobile").value.length != 10){
+				alert("Entered Mobile is not valid. Should have 10 digits");
+				return false;
+			}
+			return true;
+		}
+		
+		function validateUserPassword(){
+			if(document.getElementById("userpassword").value == ""){
+				alert("User Password cannot be empty");
+				return false;
+			}
+			else if(document.getElementById("userconfirmpassword").value == ""){
+				alert("Confirm Password cannot be empty");
+				return false;
+			}
+			else if(document.getElementById("userpassword").value 
+					!= document.getElementById("userconfirmpassword").value){
+				alert("Password and Confirm password are not the same");
+				return false;
+			}
+			return true;
+		}
+		
+		function validateAllFields(){
+			return validateUserName() 
+			&& validateUserEmail() 
+			&& validateUserMobile() 
+			&& validateUserPassword() 
+		}
+	</script>	
+	<form action="./Registration" method="post">
+		UserName : <input type="text" id="username" name="username"/> <br>
+		Email: <input type="email" id="useremail" name="useremail" /> <br>
+		Mobile: <input type="text" id="usermobile" name="usermobile"> <br><br>
+		
+		Password: <input type="password" id="userpassword" name="userpassword"/><br>
+		Confirm Password: <input type="password" id="userconfirmpassword"/>
+		<br>
+		<input type="submit" value="Register" onclick="validateAllFields()"/>		
+	</form>
+
+</body>
+</html>
